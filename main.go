@@ -1,11 +1,7 @@
 package main
 
 func main() {
-	cards := deck{"Ace of Spades", newCard()}
-	cards = append(cards, "Two of Hearts")
-	cards.print()
-}
-
-func newCard() string {
-	return "Five of Diamonds"
+	cards := newDeck()
+	// hand, remainingDeck := deal(cards, 5)
+	cards.saveToFile("my_cards")
 }
