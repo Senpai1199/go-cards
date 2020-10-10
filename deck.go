@@ -28,7 +28,7 @@ func newDeck() deck {
 
 func (d deck) toString() string {
 	// more intuitive to set it up as a receiver
-	// converts a deck type to a single comma separated string
+	// converts a deck type to a comma separated string
 	return strings.Join([]string(d), ",")
 }
 
@@ -37,12 +37,12 @@ func (d deck) saveToFile(filename string) error {
 }
 
 func newDeckFromFile(filename string) deck {
-	bs, err := ioutil.ReadFile(filename)
+	byteSlice, err := ioutil.ReadFile(filename)
 	if err != nil {
 		fmt.Println("Error: ", err)
 		os.Exit(1)
 	}
-	s := strings.Split(string(bs), ",")
+	s := strings.Split(string(byteSlice), ",") // converts into slice of strings
 	return deck(s)
 }
 
